@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.trdc.announcement.utils.Client;
 import org.trdc.announcement.utils.Transaction;
 import org.trdc.announcement.utils.Util;
+
 /**
  * Author Ibrahim Jamali
  */
@@ -94,7 +95,7 @@ public abstract class TRDC implements Runnable {
 	public abstract String request();
 
 	public void notify(Transaction transaction) {
-		StringBuffer body = new StringBuffer("🔥🔥 TRDC " + name.toUpperCase() + " -> ");
+		StringBuffer body = new StringBuffer("");
 		switch (transaction.getMethod()) {
 		case "Claim Reward":
 			body.append("🎁 A player has claimed ").append(transaction.getQuantity()).append(" #TRDC");
@@ -116,9 +117,7 @@ public abstract class TRDC implements Runnable {
 			break;
 		}
 
-		body.append("\n📢 For more details click on the link bellow \n").append("🔗 https://bscscan.com/tx/")
-				.append(transaction.getHash());
-//		System.out.println(body);
+		body.append("🔗 https://bscscan.com/tx/").append(transaction.getHash());
 		Util.twitter(body.toString());
 	}
 
