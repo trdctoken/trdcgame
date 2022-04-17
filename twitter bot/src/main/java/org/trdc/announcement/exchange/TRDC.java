@@ -97,7 +97,7 @@ public abstract class TRDC implements Runnable {
 		StringBuffer body = new StringBuffer("🔥🔥 TRDC " + name.toUpperCase() + " -> ");
 		switch (transaction.getMethod()) {
 		case "Claim Reward":
-			body.append("🎁 A player has been claimed ").append(transaction.getQuantity()).append(" #TRDC");
+			body.append("🎁 A player has claimed ").append(transaction.getQuantity()).append(" #TRDC");
 			break;
 		case "Buy Weapon":
 			body.append("🔫 A weapon has been bought for ").append(transaction.getQuantity()).append(" #TRDC");
@@ -106,7 +106,7 @@ public abstract class TRDC implements Runnable {
 			body.append("🃏 A card has been bought for ").append(transaction.getQuantity()).append(" #TRDC");
 			break;
 		case "Run Cop":
-			body.append("👮 The cop catches a thief and ").append(transaction.getQuantity())
+			body.append("👮 A cop has caught a thief and ").append(transaction.getQuantity())
 					.append(" #TRDC has been burned");
 			break;
 		case "Withdrawal Token":
